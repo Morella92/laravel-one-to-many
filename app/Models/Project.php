@@ -18,7 +18,7 @@ class Project extends Model
         'typology_id'
     ];
 
-    public function tipology(){
-        return $this->belongsTo(Tipology::class); 
+    public function typology(){
+        return $this->belongsTo(Typology::class); 
     }
 }

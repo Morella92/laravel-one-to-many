@@ -30,7 +30,7 @@
                 <td>
                   <a href="{{ route('projects.show',$project) }}">{{ $project->title }}</a>
                 </td>
-                <td>{{ $project->typology ? $project->typology->name : '-' }}</td>
+                <td>{{ $project->typology_id ? $project->typology->name : '-' }}</td>
                 <td>{{ $project->created_at }}</td>
                 <td>{{ $project->updated_at }}</td>
                 <td>
