@@ -14,7 +14,8 @@ class Project extends Model
         'title',
         'client',
         'content',
-        'url'
+        'url',
+        'typology_id'
     ];
 
     public function tipology(){

@@ -16,8 +16,8 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Title</th>
-            <th>Slug</th>
+            <th>Titolo</th>
+            <th>Tipologia</th>
             <th>Data creazione</th>
             <th>Data modifica</th>
             <th></th>
@@ -30,7 +30,7 @@
                 <td>
                   <a href="{{ route('projects.show',$project) }}">{{ $project->title }}</a>
                 </td>
-                <td>{{ $project->slug }}</td>
+                <td>{{ $project->typology ? $project->typology->name : '-' }}</td>
                 <td>{{ $project->created_at }}</td>
                 <td>{{ $project->updated_at }}</td>
                 <td>

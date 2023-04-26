@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Typology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -16,15 +17,17 @@ class ProjectSeeder extends Seeder
      * @return void
      */
     public function run(Faker $faker)
-    {
+    {   
+        $typology_ids = Typology::all()->pluck('id')->all();
+
         for ($i = 0; $i < 50; $i++) {
 
             $project = new Project();
             $project->title = $faker->unique()->sentence($faker->numberBetween(5, 10));
             $project->client = $faker->name();
             $project->content = $faker->paragraphs(3, true);
-            // $project->content = $faker->optional()->text(500);
             $project->slug = Str::slug($project->title, '-');
+            $project->typology_id = $faker->optional()->randomElement($typology_ids);
             $project->url = $faker->optional()->url();
             $project->save();
         }
