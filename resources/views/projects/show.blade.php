@@ -4,7 +4,14 @@
     <div class="container">
         <div class="d-flex align-items-center">
             <div class="me-auto">
-                <h1>{{ $project->title }}</h1>
+                <h1>
+                    {{ $project->title }}
+                    @if($project->typology)
+                        <span class="badge rounded-pill bg-warning">{{ $project->typology->name }}</span>
+                    @else
+                        <span class="badge rounded-pill bg-secondary">Nessuna tipologia</span>
+                    @endif
+                </h1>
                 <p>/{{ $project->slug }}</p>
             </div>
 

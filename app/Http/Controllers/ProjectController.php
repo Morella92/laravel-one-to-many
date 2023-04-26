@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Typology;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str;
@@ -28,7 +29,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $typologies = Typology::orderBy('name', 'asc')->get();
+
+        return view('projects.create', compact('typologies'));
     }
 
     /**
@@ -67,7 +70,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $typologies = Typology::orderBy('name', 'asc')->get();
+
+        return view('projects.edit', compact('project', 'typologies'));
     }
 
     /**

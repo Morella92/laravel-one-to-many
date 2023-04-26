@@ -16,9 +16,9 @@ class TypologySeeder extends Seeder
      */
     public function run()
     {
-        $tipologies = ['FrontEnd', 'Backend', 'Programming', 'Full stack', 'Design', 'Ops'];
+        $typologies = ['FrontEnd', 'Backend', 'Programming', 'Full stack', 'Design', 'Ops'];
 
-        foreach ($tipologies as $typology_name) {
+        foreach ($typologies as $typology_name) {
             $new_type = new typology();
             $new_type->name = $typology_name;
             $new_type->slug = Str::slug($typology_name);

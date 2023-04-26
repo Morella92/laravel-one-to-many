@@ -20,6 +20,20 @@
                  @enderror
             </div>
             <div class="mb-3">
+              <label for="typology-id" class="form-label">Tipologia</label>
+              <select class="form-select @error('typology_id') is-invalid @enderror" id="typology-id" name="typology_id" aria-label="Default select example">
+                <option value="" selected>Seleziona tipologia</option>
+                @foreach ($typologies as $typology)
+                  <option @selected( old('typology_id', $project->typology_id ) == $typology->id ) value="{{ $typology->id }}">{{ $typology->name }}</option>
+                @endforeach
+              </select>
+              @error('typology_id')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+              @enderror
+            </div>
+            <div class="mb-3">
               <label for="content" class="form-label">Contenuto</label>
               <textarea name="content" class="form-control @error('content') is-invalid @enderror" id="content">{{ old('content',$project->content) }}</textarea>
                 @error('content')
